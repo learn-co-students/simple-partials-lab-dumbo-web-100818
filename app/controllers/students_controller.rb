@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.new(student_params)
+    render "students/_form"
+     @student = Student.new(student_params)
     if @student.save
       redirect_to @student
     else
@@ -14,6 +15,7 @@ class StudentsController < ApplicationController
 
   def edit
     @student = Student.find(params[:id])
+    render "students/_form"
   end
 
   def show
